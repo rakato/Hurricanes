@@ -1,3 +1,5 @@
+
+
 #packages
 library(leaflet)
 library(stringi)
@@ -40,3 +42,7 @@ leaflet() %>%
                            htmlEscape(advisory), htmlEscape(time), htmlEscape(lon),
                            htmlEscape(lat), htmlEscape(color), htmlEscape(status),
                            htmlEscape(wind_speed), htmlEscape(pressure)))
+
+
+
+
