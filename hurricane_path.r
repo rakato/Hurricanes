@@ -37,3 +37,4 @@ legend('topright', c('Tropical Storm Wind Speeds< 75mph', 'Hurricane Wind Speeds
 #Andrew 8/16/92 to 8/28/92
 #Irene 8/21/11 to 8/28/11
 #Sandy 10/22/12 to 11/2/12
+
