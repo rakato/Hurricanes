@@ -6,11 +6,11 @@ library(maptools)
 library(rgdal)
 
 #read in dat files
-sandy<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2012H/SANDY/track.dat", skip=3, fill=TRUE)
+sandy<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2012H/SANDY/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
 
-colnames(sandy)<-c("lattitude","longitude", "Time", "WindSpeed", "Pressure", "Status")
+colnames(sandy)<-c("advisory","Latitude","Longitude", "Time", "WindSpeed", "Pressure", "Status")
 
-sandy$WindSpeedColor<- 'blue'
+sandy$WindSpeedColor <- 'blue'
 sandy$WindSpeedColor[sandy$WindSpeed>=75]<-'red'
 
 #set graphical limits for mapspace
@@ -22,12 +22,12 @@ ylim<- c(22,52)
 state.list<- c('new york', 'new jersey', 'virginia', 'massachusetts', 'connecticut', 'delaware', 'pennsylvania', 'maryland', 'south carolina',
 'north carolina', 'georgia', 'louisiana', 'texas', 'mississippi', 'alabama', 'tennessee', 'arkansas', 'missouri', 'kentucky', 'illinois', 'indiana',
 'ohio', 'oklahoma', 'kansas', 'michigan', 'nebraska', 'south dakota', 'north dakota', 'iowa', 'minnesota')
-my.map<- map("state", region= state.list, interior=FALSE, xlim=xlim, ylim=ylim)
-map("state", region=state.list, boundary = FALSE, col = "gray", add = TRUE, xlim=xlim)
+my.map<- map("state", region = state.list, interior=FALSE, xlim=xlim, ylim=ylim)
+map("state", region = state.list, boundary = FALSE, col = "gray", add = TRUE, xlim=xlim)
 
 #lines, points, and text
-lines(x=andy$Longitude, y=andy$Latitude, col="black", cex=0.75)
-points(x=andy$Longitude, y=andy$Latitude, col= andy$WindSpeedColor, pch=16, cex=0.9)
+lines(x=sandy$Longitude, y=sandy$Latitude)
+points(x=sandy$Longitude, y=sandy$Latitude, col= sandy$WindSpeedColor, pch=16, cex=0.9)
 #text(x=sandy$Longitude, y=sandy$Latitude, col='red', labels=andy$Pressure, adj=c(-0.9), cex=0.5)
 
 title("(l to r) Paths of Hurricane Andrew (1992), Irene (2011), and Sandy (2012)")
