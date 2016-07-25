@@ -7,11 +7,26 @@ library(rgdal)
 
 #read in dat files
 sandy<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2012H/SANDY/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
+andrew<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2012H/SANDY/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
+irene<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2012H/SANDY/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
+katrina<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2012H/SANDY/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
+
+
 
 colnames(sandy)<-c("advisory","Latitude","Longitude", "Time", "WindSpeed", "Pressure", "Status")
 
 sandy$WindSpeedColor <- 'blue'
 sandy$WindSpeedColor[sandy$WindSpeed>=75]<-'red'
+
+andrew$WindSpeedColor <- 'blue'
+andrew$WindSpeedColor[sandy$WindSpeed>=75]<-'red'
+
+irene$WindSpeedColor <- 'blue'
+irene$WindSpeedColor[sandy$WindSpeed>=75]<-'red'
+
+katrina$WindSpeedColor <- 'blue'
+katrina$WindSpeedColor[sandy$WindSpeed>=75]<-'red'
+
 
 #set graphical limits for mapspace
 
@@ -29,6 +44,19 @@ map("state", region = state.list, boundary = FALSE, col = "gray", add = TRUE, xl
 lines(x=sandy$Longitude, y=sandy$Latitude)
 points(x=sandy$Longitude, y=sandy$Latitude, col= sandy$WindSpeedColor, pch=16, cex=0.9)
 #text(x=sandy$Longitude, y=sandy$Latitude, col='red', labels=andy$Pressure, adj=c(-0.9), cex=0.5)
+
+lines(x=andrew$Longitude, y=andrew$Latitude)
+points(x=andrew$Longitude, y=andrew$Latitude, col= andrew$WindSpeedColor, pch=16, cex=0.9)
+#text(x=andrew$Longitude, y=andrew$Latitude, col='red', labels=andrew$Pressure, adj=c(-0.9), cex=0.5)
+
+lines(x=irene$Longitude, y=irene$Latitude)
+points(x=irene$Longitude, y=irene$Latitude, col= irene$WindSpeedColor, pch=16, cex=0.9)
+#text(x=irene$Longitude, y=irene$Latitude, col='red', labels=irene$Pressure, adj=c(-0.9), cex=0.5)
+
+lines(x=katrina$Longitude, y=katrina$Latitude)
+points(x=katrina$Longitude, y=katrina$Latitude, col= katrina$WindSpeedColor, pch=16, cex=0.9)
+#text(x=katrina$Longitude, y=katrina$Latitude, col='red', labels=katrina$Pressure, adj=c(-0.9), cex=0.5)
+
 
 title("(l to r) Paths of Hurricane Andrew (1992), Irene (2011), and Sandy (2012)")
 #  "\n with Wind Speed and Pressure")
