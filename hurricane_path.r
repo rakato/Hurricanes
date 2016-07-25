@@ -12,9 +12,14 @@ irene<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2011/IRENE
 katrina<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2012H/SANDY/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
 
 
-
+#assign colnames
 colnames(sandy)<-c("advisory","Latitude","Longitude", "Time", "WindSpeed", "Pressure", "Status")
+colnames(andrew)<-c("advisory","Latitude","Longitude", "Time", "WindSpeed", "Pressure", "Status")
+colnames(irene)<-c("advisory","Latitude","Longitude", "Time", "WindSpeed", "Pressure", "Status")
+colnames(katrina)<-c("advisory","Latitude","Longitude", "Time", "WindSpeed", "Pressure", "Status")
 
+
+#color wind strength differently
 sandy$WindSpeedColor <- 'blue'
 sandy$WindSpeedColor[sandy$WindSpeed>=75]<-'red'
 
@@ -29,7 +34,6 @@ katrina$WindSpeedColor[sandy$WindSpeed>=75]<-'red'
 
 
 #set graphical limits for mapspace
-
 xlim<- c(-110, -65)
 ylim<- c(22,52)
 
@@ -58,6 +62,7 @@ points(x=katrina$Longitude, y=katrina$Latitude, col= katrina$WindSpeedColor, pch
 #text(x=katrina$Longitude, y=katrina$Latitude, col='red', labels=katrina$Pressure, adj=c(-0.9), cex=0.5)
 
 
+#title and legend for the map
 title("(l to r) Paths of Hurricane Andrew (1992), Irene (2011), and Sandy (2012)")
 #  "\n with Wind Speed and Pressure")
 legend('topright', c('Tropical Storm Wind Speeds< 75mph', 'Hurricane Wind Speeds > 75mph'), pch=15, col=c('blue', 'red'))
