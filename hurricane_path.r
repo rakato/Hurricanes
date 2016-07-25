@@ -7,8 +7,8 @@ library(rgdal)
 
 #read in dat files
 sandy<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2012H/SANDY/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
-andrew<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2012H/SANDY/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
-irene<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2012H/SANDY/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
+andrew<- read.table(file="http://weather.unisys.com/hurricane/atlantic/1992/ANDREW/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
+irene<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2011/IRENE/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
 katrina<- read.table(file="http://weather.unisys.com/hurricane/atlantic/2012H/SANDY/track.dat", skip=3, fill=TRUE, stringsAsFactors = FALSE)
 
 
